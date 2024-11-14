@@ -1,0 +1,803 @@
+Players: ((1, 2) facing (0, -1) holding None, (3, 1) facing (0, -1) holding None), Objects: [], Bonus orders: [] All orders: [('onion', 'onion', 'onion')] Timestep: 0
+
+
+Players: ((2, 1) facing (0, -1) holding onion@(2, 1), (1, 1) facing (0, -1) holding None), Objects: [onion@(2, 3), soup@(2, 0)
+Ingredients:    [onion@(2, 0)]
+Cooking Tick:   -1, dish@(1, 0)], Bonus orders: [] All orders: [('onion', 'onion', 'onion')] 
+
+
+
+Players: ((3, 1) facing (1, 0) holding onion@(3, 1), (1, 2) facing (0, 1) holding None), Objects: [soup@(2, 0)
+Ingredients:    [onion@(2, 0)]
+Cooking Tick:   20, onion@(2, 3)], Bonus orders: [] All orders: [('onion', 'onion', 'onion')] Timestep: 288
+
+{'ep_infos': array([
+              [
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+        ...,
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None, 'episode': {'ep_game_stats': {'tomato_pickup': [
+                                                 [],
+                                                 []
+                                          ], 'useful_tomato_pickup': [
+                                                 [],
+                                                 []
+                                          ], 'tomato_drop': [
+                                                 [],
+                                                 []
+                                          ], 'useful_tomato_drop': [
+                                                 [],
+                                                 []
+                                          ], 'potting_tomato': [
+                                                 [],
+                                                 []
+                                          ], 'onion_pickup': [
+                                                 [
+                                                        79,
+                                                        106,
+                                                        170,
+                                                        218,
+                                                        340,
+                                                        420,
+                                                        510,
+                                                        534,
+                                                        604,
+                                                        684,
+                                                        768,
+                                                        905
+                                                 ],
+                                                 [
+                                                        89,
+                                                        142,
+                                                        186,
+                                                        210,
+                                                        438,
+                                                        543,
+                                                        750,
+                                                        770,
+                                                        777,
+                                                        823
+                                                 ]
+                                          ], 'useful_onion_pickup': [
+                                                 [
+                                                        79,
+                                                        106,
+                                                        340,
+                                                        420
+                                                 ],
+                                                 [
+                                                        89,
+                                                        438
+                                                 ]
+                                          ], 'onion_drop': [
+                                                 [
+                                                        103,
+                                                        128,
+                                                        217,
+                                                        335,
+                                                        532,
+                                                        601,
+                                                        654,
+                                                        741,
+                                                        891
+                                                 ],
+                                                 [
+                                                        183,
+                                                        191,
+                                                        300,
+                                                        541,
+                                                        746,
+                                                        766,
+                                                        771,
+                                                        806
+                                                 ]
+                                          ], 'useful_onion_drop': [
+                                                 [
+                                                        128,
+                                                        217,
+                                                        532,
+                                                        601,
+                                                        654,
+                                                        741,
+                                                        891
+                                                 ],
+                                                 [
+                                                        183,
+                                                        191,
+                                                        300,
+                                                        541,
+                                                        746,
+                                                        766,
+                                                        771,
+                                                        806
+                                                 ]
+                                          ], 'potting_onion': [
+                                                 [
+                                                        415,
+                                                        491
+                                                 ],
+                                                 [
+                                                        105
+                                                 ]
+                                          ], 'dish_pickup': [
+                                                 [],
+                                                 [
+                                                        60,
+                                                        310
+                                                 ]
+                                          ], 'useful_dish_pickup': [
+                                                 [],
+                                                 []
+                                          ], 'dish_drop': [
+                                                 [],
+                                                 [
+                                                        77
+                                                 ]
+                                          ], 'useful_dish_drop': [
+                                                 [],
+                                                 [
+                                                        77
+                                                 ]
+                                          ], 'soup_pickup': [
+                                                 [],
+                                                 [
+                                                        401
+                                                 ]
+                                          ], 'soup_delivery': [
+                                                 [],
+                                                 [
+                                                        426
+                                                 ]
+                                          ], 'soup_drop': [
+                                                 [],
+                                                 []
+                                          ], 'optimal_onion_potting': [
+                                                 [
+                                                        415,
+                                                        491
+                                                 ],
+                                                 [
+                                                        105
+                                                 ]
+                                          ], 'optimal_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'viable_onion_potting': [
+                                                 [
+                                                        415,
+                                                        491
+                                                 ],
+                                                 [
+                                                        105
+                                                 ]
+                                          ], 'viable_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'catastrophic_onion_potting': [
+                                                 [],
+                                                 []
+                                          ], 'catastrophic_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'useless_onion_potting': [
+                                                 [],
+                                                 []
+                                          ], 'useless_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'cumulative_sparse_rewards_by_agent': array([
+                                                 0,
+                                                 0
+                                          ]), 'cumulative_shaped_rewards_by_agent': array([
+                                                 6,
+                                                 8
+                                          ])
+                                   }, 'ep_sparse_r': np.int64(0), 'ep_shaped_r': np.int64(14), 'ep_sparse_r_by_agent': array([
+                                          0,
+                                          0
+                                   ]), 'ep_shaped_r_by_agent': array([
+                                          6,
+                                          8
+                                   ]), 'ep_length': 1000
+                            }
+                     }
+              ],
+              [
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+        ...,
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None
+                     },
+                     {'agent_infos': [
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   },
+                                   {'action_probs': array([
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667,
+                                                 0.16666667
+                                          ])
+                                   }
+                            ], 'sparse_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'shaped_r_by_agent': [
+                                   0,
+                                   0
+                            ], 'phi_s': None, 'phi_s_prime': None, 'episode': {'ep_game_stats': {'tomato_pickup': [
+                                                 [],
+                                                 []
+                                          ], 'useful_tomato_pickup': [
+                                                 [],
+                                                 []
+                                          ], 'tomato_drop': [
+                                                 [],
+                                                 []
+                                          ], 'useful_tomato_drop': [
+                                                 [],
+                                                 []
+                                          ], 'potting_tomato': [
+                                                 [],
+                                                 []
+                                          ], 'onion_pickup': [
+                                                 [
+                                                        46,
+                                                        62,
+                                                        67,
+                                                        110,
+                                                        150,
+                                                        190,
+                                                        218,
+                                                        473
+                                                 ],
+                                                 [
+                                                        53,
+                                                        69,
+                                                        109,
+                                                        192,
+                                                        229,
+                                                        338
+                                                 ]
+                                          ], 'useful_onion_pickup': [
+                                                 [
+                                                        46,
+                                                        62,
+                                                        67,
+                                                        110,
+                                                        150,
+                                                        190,
+                                                        218,
+                                                        473
+                                                 ],
+                                                 [
+                                                        53,
+                                                        69,
+                                                        109,
+                                                        192,
+                                                        229,
+                                                        338
+                                                 ]
+                                          ], 'onion_drop': [
+                                                 [
+                                                        55,
+                                                        63,
+                                                        106,
+                                                        135,
+                                                        164
+                                                 ],
+                                                 [
+                                                        61,
+                                                        79,
+                                                        152,
+                                                        323,
+                                                        339
+                                                 ]
+                                          ], 'useful_onion_drop': [
+                                                 [],
+                                                 []
+                                          ], 'potting_onion': [
+                                                 [
+                                                        215,
+                                                        471
+                                                 ],
+                                                 [
+                                                        227
+                                                 ]
+                                          ], 'dish_pickup': [
+                                                 [],
+                                                 [
+                                                        343
+                                                 ]
+                                          ], 'useful_dish_pickup': [
+                                                 [],
+                                                 [
+                                                        343
+                                                 ]
+                                          ], 'dish_drop': [
+                                                 [],
+                                                 []
+                                          ], 'useful_dish_drop': [
+                                                 [],
+                                                 []
+                                          ], 'soup_pickup': [
+                                                 [],
+                                                 []
+                                          ], 'soup_delivery': [
+                                                 [],
+                                                 []
+                                          ], 'soup_drop': [
+                                                 [],
+                                                 []
+                                          ], 'optimal_onion_potting': [
+                                                 [
+                                                        215,
+                                                        471
+                                                 ],
+                                                 [
+                                                        227
+                                                 ]
+                                          ], 'optimal_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'viable_onion_potting': [
+                                                 [
+                                                        215,
+                                                        471
+                                                 ],
+                                                 [
+                                                        227
+                                                 ]
+                                          ], 'viable_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'catastrophic_onion_potting': [
+                                                 [],
+                                                 []
+                                          ], 'catastrophic_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'useless_onion_potting': [
+                                                 [],
+                                                 []
+                                          ], 'useless_tomato_potting': [
+                                                 [],
+                                                 []
+                                          ], 'cumulative_sparse_rewards_by_agent': array([
+                                                 0,
+                                                 0
+                                          ]), 'cumulative_shaped_rewards_by_agent': array([
+                                                 6,
+                                                 6
+                                          ])
+                                   }, 'ep_sparse_r': np.int64(0), 'ep_shaped_r': np.int64(12), 'ep_sparse_r_by_agent': array([
+                                          0,
+                                          0
+                                   ]), 'ep_shaped_r_by_agent': array([
+                                          6,
+                                          6
+                                   ]), 'ep_length': 1000
+                            }
+                     }
+              ]
+       ],
+      dtype=object), 'mdp_params': array([
+              {'layout_name': 'cramped_room', 'terrain': [
+                            ['X', 'X', 'P', 'X', 'X'
+                            ],
+                            ['O', ' ', ' ', ' ', 'O'
+                            ],
+                            ['X', ' ', ' ', ' ', 'X'
+                            ],
+                            ['X', 'D', 'X', 'S', 'X'
+                            ]
+                     ], 'start_player_positions': [(1,
+                            2), (3,
+                            1)
+                     ], 'start_bonus_orders': [], 'rew_shaping_params': {'PLACEMENT_IN_POT_REW': 3, 'DISH_PICKUP_REWARD': 3, 'SOUP_PICKUP_REWARD': 5, 'DISH_DISP_DISTANCE_REW': 0, 'POT_DISTANCE_REW': 0, 'SOUP_DISTANCE_REW': 0
+                     }, 'start_all_orders': [
+                            {'ingredients': ['onion', 'onion', 'onion'
+                                   ]
+                            }
+                     ]
+              },
+              {'layout_name': 'cramped_room', 'terrain': [
+                            ['X', 'X', 'P', 'X', 'X'
+                            ],
+                            ['O', ' ', ' ', ' ', 'O'
+                            ],
+                            ['X', ' ', ' ', ' ', 'X'
+                            ],
+                            ['X', 'D', 'X', 'S', 'X'
+                            ]
+                     ], 'start_player_positions': [(1,
+                            2), (3,
+                            1)
+                     ], 'start_bonus_orders': [], 'rew_shaping_params': {'PLACEMENT_IN_POT_REW': 3, 'DISH_PICKUP_REWARD': 3, 'SOUP_PICKUP_REWARD': 5, 'DISH_DISP_DISTANCE_REW': 0, 'POT_DISTANCE_REW': 0, 'SOUP_DISTANCE_REW': 0
+                     }, 'start_all_orders': [
+                            {'ingredients': ['onion', 'onion', 'onion'
+                                   ]
+                            }
+                     ]
+              }
+       ],
+      dtype=object), 'env_params': array([
+              {'start_state_fn': None, 'horizon': 1000, 'info_level': 0, 'num_mdp': 1
+              },
+              {'start_state_fn': None, 'horizon': 1000, 'info_level': 0, 'num_mdp': 1
+              }
+       ],
+      dtype=object), 'ep_rewards': array([
+              [
+                     0,
+                     0,
+                     0, ...,
+                     0,
+                     0,
+                     0
+              ],
+              [
+                     0,
+                     0,
+                     0, ...,
+                     0,
+                     0,
+                     0
+              ]
+       ], dtype=object), 'ep_actions': array([
+              [((0,
+                     -1), (0,
+                     -1)), ((0,
+                     1), 'interact'), ((-1,
+                     0), (0,
+                     0)), ...,
+        ((-1,
+                     0), (0,
+                     0)), ((0,
+                     1), (0,
+                     0)), ('interact', (0,
+                     0))
+              ],
+              [((0,
+                     1), 'interact'), ((0,
+                     1), (0,
+                     1)), ((0,
+                     -1), (0,
+                     1)), ...,
+        ((0,
+                     1), (0,
+                     -1)), ((0,
+                     -1), (0,
+                     -1)), ((0,
+                     -1), (-1,
+                     0))
+              ]
+       ],
+      dtype=object), 'metadatas': {}, 'ep_returns': array([
+              0,
+              0
+       ]), 'ep_lengths': array([
+              1000,
+              1000
+       ]), 'ep_dones': array([
+              [False, False, False, ..., False, False, True
+              ],
+              [False, False, False, ..., False, False, True
+              ]
+       ], dtype=object), 'ep_states': array([
+              [<overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128b13b10>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128ba5350>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128ba55b0>,
+        ...,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128eb0360>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128eb03d0>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128eb0440>
+              ],
+              [<overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128eb0520>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128eb0590>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x128eb0600>,
+        ...,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x12f307cb0>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x12f307d20>,
+        <overcooked_ai_py.mdp.overcooked_mdp.OvercookedState object at 0x12f307d90>
+              ]
+       ],
+      dtype=object)
+}
