@@ -1,4 +1,0 @@
-openssl 3.4
-python 3.9.17
-create env
-numpy 1.23.5
