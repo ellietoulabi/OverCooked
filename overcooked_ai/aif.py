@@ -392,7 +392,7 @@ class AIFAgent(Agent):
             best_action_index = np.argmax(self.q_table[state])  # Exploitation
             return self.actions[best_action_index]
 
-    def update(self, state, action, reward, next_state):
+    def update(self, info):
         """
         Update the Q-value for the given state-action pair based on observed reward and next state.
 
@@ -402,13 +402,13 @@ class AIFAgent(Agent):
             reward (float): The reward received for taking the action.
             next_state (tuple): The next state after taking the action.
         """
-        action_idx = self.actions.index(action)
-        best_next_action = np.argmax(self.q_table[next_state])  # Get best action for next state
-        td_target = reward + self.discount_factor * self.q_table[next_state][best_next_action]
-        td_error = td_target - self.q_table[state][action_idx]
+        # action_idx = self.actions.index(action)
+        # best_next_action = np.argmax(self.q_table[next_state])  # Get best action for next state
+        # td_target = reward + self.discount_factor * self.q_table[next_state][best_next_action]
+        # td_error = td_target - self.q_table[state][action_idx]
         
-        # Update Q-value using temporal-difference error
-        self.q_table[state][action_idx] += self.learning_rate * td_error
+        # # Update Q-value using temporal-difference error
+        # self.q_table[state][action_idx] += self.learning_rate * td_error
         
         
         

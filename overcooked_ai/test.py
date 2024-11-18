@@ -51,12 +51,17 @@ oven_states = ['EMPTY'] + ['SOUP-'+ str(i) for i in range(1,3)] + ['SOUP-3-' + s
 # num_states = [num_grid_points, len(Direction.ALL_DIRECTIONS), ]
 num_states = [num_grid_points, len(Direction.ALL_DIRECTIONS), len(holding_objects), len(oven_states)]
 
+
+
 reward_obs = ['NONE', 'SERVE', 'DISH_PICKUP', 'SOUP_PICKUP', 'ONION_PICKUP', 'DROP_ONION']
 # reward_obs = ['NONE', 'SERVE']
 
 num_obs = [num_grid_points, len(Direction.ALL_DIRECTIONS), len(holding_objects), len(oven_states), len(reward_obs)]
 
 A_m_shapes = [ [o_dim] + num_states for o_dim in num_obs] # list of shapes of modality-specific A[m] arrays
+
+
+
 A = utils.obj_array_zeros(A_m_shapes) # initialize A array to an object array of all-zero subarrays
 
 # Position
@@ -250,7 +255,7 @@ for i in range(5):
 
 C = utils.obj_array_zeros(num_obs)
 # C[4][0] = 0
-C[4][1] = 20
+C[4][1] = 20 #[TODO] should this be c4??
 # C[4][2] = 3
 # C[4][3] = 5
 # C[4][4] = 3
@@ -263,6 +268,10 @@ D[0] = utils.onehot(loc_list.index((1,0)), num_grid_points)
 D[1] = utils.onehot(Direction.ALL_DIRECTIONS.index(Direction.NORTH), len(Direction.ALL_DIRECTIONS))
 D[2] = utils.onehot(0, len(holding_objects))
 D[3] = utils.onehot(0, len(oven_states))
+
+
+
+
 
 if __name__ == "__main__":
     
@@ -280,9 +289,9 @@ if __name__ == "__main__":
     
     
         # Initialize two Q-learning agents
-        q_agent_1 = QlearningAgent(q_table_1, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
-        q_agent_2 = QlearningAgent(q_table_2, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
-        aif_agent = AIFAgent(actions, A, B, C, D, control_fac_idx, 2)
+        q_agent_1 = QlearningAgent("QL1",q_table_1, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
+        q_agent_2 = QlearningAgent("QL2", q_table_2, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
+        aif_agent = AIFAgent(actions, A, B, C, D, control_fac_idx, 1)
         # Create an AgentPair with the two Q-learning agents
         agent_pair = AgentPair(aif_agent, q_agent_2)
 
