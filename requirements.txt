@@ -1,4 +1,7 @@
-openssl 3.4
-python 3.9.17
-create env
-numpy 1.23.5
+openssl==3.4
+numpy==1.23.5
+imageio
+gym
+overcooked-ai
+git+https://github.com/ellietoulabi/pymdp_ai.git#egg=inferactively-pymdp
+

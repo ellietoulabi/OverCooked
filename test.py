@@ -291,7 +291,7 @@ if __name__ == "__main__":
         # Initialize two Q-learning agents
         q_agent_1 = QlearningAgent("QL1",q_table_1, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
         q_agent_2 = QlearningAgent("QL2", q_table_2, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
-        aif_agent = AIFAgent(actions, A, B, C, D, control_fac_idx, policy_len=8)
+        aif_agent = AIFAgent(actions, A, B, C, D, control_fac_idx, policy_len=1)
         # Create an AgentPair with the two Q-learning agents
         agent_pair = AgentPair(aif_agent, q_agent_2)
 
