@@ -16,6 +16,8 @@ from pymdp.agent import Agent as pymdpAgent
 from pymdp import utils, maths
 from pymdp.envs import Env
 
+import wandb
+
 
 
 # class CoockingEnv(Env):
@@ -266,15 +268,23 @@ from pymdp.envs import Env
 class AIFAgent(Agent):
     def __init__(self, actions, A, B, C, D, control_fac_idx, policy_len):
         """
-        Q-Learning Agent for the Overcooked 'cramped_room' layout.
-
-        Args:
-            actions (list): List of possible actions ('up', 'down', 'left', 'right', 'stay', 'interact').
-            learning_rate (float): Rate at which the agent learns from new experiences.
-            discount_factor (float): Factor by which future rewards are discounted.
-            epsilon (float): Initial exploration rate for epsilon-greedy policy.
-            epsilon_decay (float): Rate at which epsilon decays after each episode.
-            min_epsilon (float): Minimum value of epsilon for exploration.
+        AIFAgent class for an agent that learns to play Overcooked using the AIF algorithm.
+        Parameters
+        ----------
+        actions : list
+            List of possible actions the agent can take.
+        A : numpy.ndarray
+            Observation likelihood matrix.
+        B : numpy.ndarray
+            Transition likelihood matrix.
+        C : numpy.ndarray
+            Prior preferences over observations.
+        D : numpy.ndarray
+            Prior beliefs over states.
+        control_fac_idx : int
+            Index of the control factor.
+        policy_len : int
+            Length of the policy.
         """
         super().__init__()
         self.agent_index = None
@@ -285,6 +295,7 @@ class AIFAgent(Agent):
         grid = np.arange(num_grid_points).reshape(grid_dims)
         it = np.nditer(grid, flags=["multi_index"])
         self.loc_list = []
+        self.C = C
 
         while not it.finished:
             self.loc_list.append(it.multi_index)
@@ -300,17 +311,18 @@ class AIFAgent(Agent):
     def determineOvenState(self, objects):
         oven_states = ['EMPTY'] + ['SOUP-'+ str(i) for i in range(1,3)] + ['SOUP-3-' + str(i) for i in range(21)]
         oven_state_id = 0
-        for pos, objs in objects.items():
-            for obj in objs:
-                if obj.name == 'soup':
-                    num_onions = len(list(filter(lambda x : x.name == 'onion', obj.ingrdients)))
-                    if num_onions == 0:
-                        oven_state_id = 0
-                    elif num_onions < 3:
-                        oven_state_id = oven_states.index(f'SOUP-{num_onions}')
-                    else:
-                        oven_state_id = oven_states.index(f'SOUP-{num_onions}-{obj.cooking_tick}')
-                    return oven_state_id
+        for pos, obj in objects.items():
+            print("***",obj.__dict__)
+            
+            if obj.name == 'soup':
+                num_onions = len(list(filter(lambda x : x == 'onion', obj.ingredients)))
+                if num_onions == 0:
+                    oven_state_id = 0
+                elif num_onions < 3:
+                    oven_state_id = oven_states.index(f'SOUP-{num_onions}')
+                else:
+                    oven_state_id = oven_states.index(f'SOUP-{num_onions}-{obj.cooking_tick}')
+                return oven_state_id
         return oven_state_id
                     
     def determineReward(self, state, oven_state_id):
@@ -361,6 +373,11 @@ class AIFAgent(Agent):
         #     oven_state_id,
         #     reward_id
         # ])
+        print("###",self.C[4][reward_id])
+
+        wandb.log({"aif_reward": self.C[4][reward_id]})
+        print(f"aif_reward:{self.C[4][reward_id]}")
+
         return [
             self.loc_list.index(tuple([agent_pos[1]-1, agent_pos[0]-1])),
             Direction.ALL_DIRECTIONS.index(agent.orientation),
@@ -387,7 +404,7 @@ class AIFAgent(Agent):
         self.aif_agent.infer_states(obs)
         
         elend= datetime.datetime.now()
-        print("Infer state Duration:", elend - elstart)
+        # print("Infer state Duration:", elend - elstart)
         
         elstart = datetime.datetime.now()
    
@@ -395,18 +412,19 @@ class AIFAgent(Agent):
         self.aif_agent.infer_policies()
        
         elend= datetime.datetime.now()
-        print("Infer policy Duration:", elend - elstart)
+        # print("Infer policy Duration:", elend - elstart)
         elstart = datetime.datetime.now()
 
         chosen_action_id = self.aif_agent.sample_action()
         elend= datetime.datetime.now()
-        print("Sample Action Duration:", elend - elstart)
+        # print("Sample Action Duration:", elend - elstart)
         # movement_id = int(chosen_action_id[0])#NOTE:Removed
         movement_id = int(chosen_action_id)
         
         choice_action = self.actions[movement_id]
 
-        print(f'choosed: {choice_action}')
+        print(f'choosed action: {choice_action}')
+        # print("C: ",self.aif_agent.C)
         return choice_action
         if random.random() < self.epsilon:
             return random.choice(self.actions)  # Exploration: random action
@@ -469,26 +487,7 @@ class AIFAgent(Agent):
         # Return the action and Q-values as action info for logging
         return action, {}
 
-    def observe_transition(self, state, action, reward, next_state):
-        """
-        Stores a transition and updates the Q-values.
-
-        Args:
-            state (OvercookedState): The state before taking the action.
-            action (int): The action taken.
-            reward (float): The reward received.
-            next_state (OvercookedState): The state after taking the action.
-        """
-        # Simplify state representations
-        simplified_state = self.state_representation(state)
-        simplified_next_state = self.state_representation(next_state)
-        
-        # Update Q-table
-        self.update(simplified_state, action, reward, simplified_next_state)
-        
-        # Decay epsilon for exploration-exploitation balance
-        self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
-
+    
     # def actions(self, states, agent_indices):
     #     """
     #     Choose actions for multiple states in a batch.

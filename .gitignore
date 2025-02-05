@@ -2,5 +2,6 @@
 gifs/
 images/
 __pycache__/
-overcooked_ai/
 pymdp_ai/
+wandb/
+.venv311/

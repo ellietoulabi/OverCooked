@@ -14,8 +14,14 @@ import matplotlib.pyplot as plt
 # from pymdp.agent import Agent as pymdpAgent
 from pymdp import utils, maths
 # from pymdp.envs import Env
-
-# wandb.init(project="Overcooked_Qlearning")
+import wandb
+wandb.init(project="OverCooked_AIF_QL",
+           
+           config={
+               "policy_length": 2
+           }
+           
+           )
 
 
 
@@ -48,16 +54,15 @@ while not it.finished:
 
 holding_objects = ['EMPTY', 'ONION', 'DISH', 'SOUP']
 oven_states = ['EMPTY'] + ['SOUP-'+ str(i) for i in range(1,3)] + ['SOUP-3-' + str(i) for i in range(21)]
-# num_states = [num_grid_points, len(Direction.ALL_DIRECTIONS), ]
 num_states = [num_grid_points, len(Direction.ALL_DIRECTIONS), len(holding_objects), len(oven_states)]
 
-
-
-reward_obs = ['NONE', 'SERVE', 'DISH_PICKUP', 'SOUP_PICKUP', 'ONION_PICKUP', 'DROP_ONION']
-# reward_obs = ['NONE', 'SERVE']
+reward_obs = ['NONE', 'SERVE', 'DISH_PICKUP', 'SOUP_PICKUP', 'ONION_PICKUP', 'DROP_ONION'] #Shaped rewards
+# reward_obs = ['NONE', 'SERVE'] 
 
 num_obs = [num_grid_points, len(Direction.ALL_DIRECTIONS), len(holding_objects), len(oven_states), len(reward_obs)]
 
+
+# initialize `A` matrix
 A_m_shapes = [ [o_dim] + num_states for o_dim in num_obs] # list of shapes of modality-specific A[m] arrays
 
 
@@ -252,14 +257,14 @@ for i in range(5):
     
 #     print(B[3].sum(axis=0))
 # exit()
-
+# 'NONE', 'SERVE', 'DISH_PICKUP', 'SOUP_PICKUP', 'ONION_PICKUP', 'DROP_ONION'
 C = utils.obj_array_zeros(num_obs)
-# C[4][0] = 0
+C[4][0] = 0
 C[4][1] = 20 #[TODO] should this be c4??
-# C[4][2] = 3
-# C[4][3] = 5
-# C[4][4] = 3
-# C[4][5] = 3
+C[4][2] = 3
+C[4][3] = 5
+C[4][4] = 0
+C[4][5] = 3
 
 
 
@@ -280,36 +285,45 @@ if __name__ == "__main__":
     
     actions = Action.ALL_ACTIONS
     
-    q_table_1 = defaultdict(lambda: np.zeros(len(actions)))  # Initialize Q-table
-    q_table_2 = defaultdict(lambda: np.zeros(len(actions)))  # Initialize Q-table
+    '''
+    Initialize Q-tables: each key represents a state, and the value is a NumPy array with a length equal to the number 
+    of possible actions.
+    The total size of each Q-table will depend on the number of unique states encountered during the agent's interaction 
+    with the environment. Each state-action pair will have an entry in the Q-table.
+    '''
+    # q_table_1 = defaultdict(lambda: np.zeros(len(actions)))  
+    # q_table_2 = defaultdict(lambda: np.zeros(len(actions)))  
 
-
+    q_table_1 = np.zeros((len(actions),num_grid_points, len(Direction.ALL_DIRECTIONS), len(holding_objects), len(oven_states)))
+    q_table_2 = np.zeros((len(actions),num_grid_points, len(Direction.ALL_DIRECTIONS), len(holding_objects), len(oven_states)))
     
-    for i in range (1):
+    # for i in range (1):
     
     
-        # Initialize two Q-learning agents
-        q_agent_1 = QlearningAgent("QL1",q_table_1, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
-        q_agent_2 = QlearningAgent("QL2", q_table_2, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
-        aif_agent = AIFAgent(actions, A, B, C, D, control_fac_idx, policy_len=1)
-        # Create an AgentPair with the two Q-learning agents
-        agent_pair = AgentPair(aif_agent, q_agent_2)
+    # Initialize agents
+    q_agent_1 = QlearningAgent("QL1",q_table_1, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
+    q_agent_2 = QlearningAgent("QL2", q_table_2, actions=actions, learning_rate=0.1, discount_factor=0.99, epsilon=1)
+    # aif_agent = AIFAgent(actions, A, B, C, D, control_fac_idx, policy_len=1)
+    stay_agent = StayAgent()
+    # Create an AgentPair with the two Q-learning agents
+    agent_pair = AgentPair(q_agent_1,stay_agent)
 
-
-        mdp_gen_params = {"layout_name": 'cramped_room'}
-        mdp_fn = LayoutGenerator.mdp_gen_fn_from_dict(mdp_gen_params)
-        env_params = {"horizon":5000}
-        agent_eval = AgentEvaluator(env_params=env_params,mdp_fn=mdp_fn)
-        
-        trajectory_random_pair = agent_eval.evaluate_agent_pair(agent_pair,num_games=1)
-        # trajectory_random_pair = agent_eval.evaluate_random_pair(num_games=1000)
-        print("######EvalDone####")
-        # action_probs = [ [q_agent_1.action(state)[1]["action_probs"]]*2 for state in trajectory_random_pair["ep_states"][0]]
-        StateVisualizer().display_rendered_trajectory(trajectory_random_pair, ipython_display=False,img_directory_path='./images/',img_extension='.png',img_prefix='r0-')
-        
-    # animator = ImageAnimator('./images/')
-    # animator.create_gif('./gifs/output_imageio.gif', duration=0.05)
-
+    mdp_gen_params = {"layout_name": 'cramped_room'}
+    mdp_fn = LayoutGenerator.mdp_gen_fn_from_dict(mdp_gen_params)
+    env_params = {"horizon":500}
+    agent_eval = AgentEvaluator(env_params=env_params,mdp_fn=mdp_fn)
+    
+    
+    trajectory_random_pair = agent_eval.evaluate_agent_pair(agent_pair,num_games=5)
+    # trajectory_random_pair = agent_eval.evaluate_random_pair(num_games=1000)
+    print("######EvalDone####")
+    # action_probs = [ [q_agent_1.action(state)[1]["action_probs"]]*2 for state in trajectory_random_pair["ep_states"][0]]
+    
+    # Visualize the trajectory
+    StateVisualizer().display_rendered_trajectory(trajectory_random_pair, ipython_display=False,img_directory_path='./images/',img_extension='.png',img_prefix='r0-')
+    animator = ImageAnimator('./images/')
+    animator.create_gif('./gifs/output_imageio.gif', duration=0.05)
+    # end for
    
     print("Random pair rewards: \n",trajectory_random_pair['ep_returns'])
     sr , shr = game_runs_info(trajectory_random_pair,print_details=True)
