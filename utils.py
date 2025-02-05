@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from PIL import Image
 import numpy as np
-
+import time
+import wandb
 
 
 
@@ -128,3 +129,53 @@ def game_runs_info(data, print_details=False):
     return sr,shr       
     # return ep_sparse_r_arr, ep_sparse_r_by_agent_arr, ep_shaped_r_arr, ep_shaped_r_by_agent_arr
 
+
+
+
+
+
+def plot_rewards(array1, array2, num_games, horizon, filename, label1, label2, title, ylabel, timestamp):
+    """
+    Plots rewards for two agents over time.
+    
+    Parameters:
+    - array1: First array of rewards.
+    - array2: Second array of rewards.
+    - num_games: Number of games played.
+    - horizon: Horizon (time steps per game).
+    - filename: Path to save the figure.
+    - label1: Label for the first array.
+    - label2: Label for the second array.
+    - title: Title of the plot.
+    - ylabel: Label for the y-axis.
+    """
+    plt.figure(figsize=(10, 5))
+    
+    # Compute time steps
+    time_steps = np.arange(num_games * horizon)
+    # plt.ylim(bottom=0)
+
+    # Plot both reward arrays
+    plt.plot(time_steps, array1, label=label1, linewidth=0.5)
+    # plt.ylim(bottom=0)
+
+    plt.plot(time_steps, array2, label=label2, linewidth=0.5)
+    # plt.ylim(bottom=0)
+
+    # Draw dashed gray lines at the end of each game
+    # for i in range(1, num_games):
+    #     plt.axvline(x=i * horizon, color='gray', linestyle='dashed', linewidth=0.2)
+    
+    # Labels and title
+    plt.xlabel("Time Step")
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.legend()
+    
+    # Save the figure
+    path = "./plots/"
+    filename_save = f"{filename}_{timestamp}.png"
+    plt.savefig(path + filename_save)
+    wandb.log({f"{filename}": wandb.Image(path + filename_save)})
+
+    plt.close()

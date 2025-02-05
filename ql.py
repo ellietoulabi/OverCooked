@@ -3,6 +3,7 @@ from overcooked_ai.src.overcooked_ai_py.mdp.overcooked_mdp import OvercookedStat
 from overcooked_ai.src.overcooked_ai_py.mdp.actions import Action, Direction
 import random
 import numpy as np
+import wandb
 
 class QLearningAgent(Agent):
     def __init__(self, q_table, actions, learning_rate=0.1, discount_factor=0.99, epsilon=1.0, epsilon_decay=0.99, min_epsilon=0.1, seed=42):
@@ -111,7 +112,10 @@ class QLearningAgent(Agent):
         choice_action_index = self.all_actions.index(info_dict['actions'][self.agent_index])
         state = self._parse_state(info_dict['prev_state'])
         new_state = self._parse_state(info_dict['next_state'])
-        reward = info_dict['sparse_r_by_agent'][self.agent_index]
-
+        s_reward = info_dict['sparse_r_by_agent'][self.agent_index]
+        sh_reward = info_dict['shaped_r_by_agent'][self.agent_index]
+        wandb.log({f"agent{self.agent_index}_sparse_reward": s_reward})
+        wandb.log({f"agent{self.agent_index}_shaped_reward": sh_reward})
+        reward = s_reward
         self.q_table[choice_action_index, *state] = (1-self.learning_rate)*self.q_table[choice_action_index, *state] + self.learning_rate * (reward + self.discount_factor * np.max(self.q_table[:, *new_state]) )
         

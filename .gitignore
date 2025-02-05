@@ -5,3 +5,4 @@ __pycache__/
 pymdp_ai/
 wandb/
 .venv311/
+plots/
